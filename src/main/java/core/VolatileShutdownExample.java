@@ -1,6 +1,6 @@
 package core;
 
-public class VolatileExample extends Thread {
+public class VolatileShutdownExample extends Thread {
 
     // The volatile keyword indicates that the value of a field is not cached
     // locally and is always read from main memory. This guarantees that any
