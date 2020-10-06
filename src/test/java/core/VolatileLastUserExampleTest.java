@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -32,6 +33,9 @@ public class VolatileLastUserExampleTest {
         for (final Future<Boolean> task : tasks) {
             assertThat(task.get(), is(true));
         }
+
+        threadPool.shutdown();
+        threadPool.awaitTermination(30, TimeUnit.SECONDS);
 
         assertThat(passwordChecker.getLastValidUsername().startsWith("user"), is(true));
     }

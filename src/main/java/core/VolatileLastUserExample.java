@@ -11,7 +11,6 @@ public class VolatileLastUserExample {
         final boolean valid = "password".equals(password);
         if (valid) {
             lastValidUsername = username;
-            System.out.println(username);
         }
         return valid;
     }
